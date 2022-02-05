@@ -1,5 +1,5 @@
 import './App.css'
-import { Component, Fragment } from 'react'
+import React, { Component, Fragment }  from 'react';
 import RegistrationForm from './Components/RegistrationForm/RegistrationForm'
 
 class App extends Component {
