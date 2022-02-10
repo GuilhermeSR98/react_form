@@ -1,14 +1,15 @@
 import './App.css'
-import React, { Component, Fragment }  from 'react';
+import React, { Component } from 'react'
+import { Container, Typography } from '@mui/material/'
 import RegistrationForm from './Components/RegistrationForm/RegistrationForm'
 
 class App extends Component {
   render() {
     return (
-      <Fragment>
-        <h1>Registration Form</h1>
+      <Container maxWidth="sm">
+        <Typography variant="h1">Registration Form</Typography>
         <RegistrationForm />
-      </Fragment>
+      </Container>
     )
   }
 }
