@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Button,
   FormControlLabel,
@@ -8,8 +8,13 @@ import {
 } from '@mui/material/'
 
 function RegistrationForm() {
+  const [name, setName] = useState('Guilherme')
   return (
-    <form>
+    <form
+      onSubmit={event => {
+        event.preventDefault()
+      }}
+    >
       <Box
         component="form"
         sx={{
@@ -20,11 +25,17 @@ function RegistrationForm() {
         autoComplete="off"
       >
         <TextField
+          value={name}
           fullWidth
           margin="normal"
           id="nameTextField"
           label="Name"
           variant="outlined"
+          onChange={event => {
+            if (name.length >= 3) {
+              setName(name.substring(0, 3))
+            }
+          }}
         />
         <TextField
           fullWidth
@@ -42,15 +53,14 @@ function RegistrationForm() {
         />
       </Box>
 
-      <FormControlLabel
-        control={<Switch defaultChecked />}
-        label="Prmotions"
-      />
+      <FormControlLabel control={<Switch defaultChecked />} label="Prmotions" />
       <FormControlLabel
         control={<Switch defaultChecked />}
         label="Newsletter"
       />
-      <Button variant="contained">Register</Button>
+      <Button type="submit" variant="contained">
+        Register
+      </Button>
     </form>
   )
 }
