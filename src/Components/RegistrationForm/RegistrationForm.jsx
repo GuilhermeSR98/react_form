@@ -8,7 +8,8 @@ import {
 } from '@mui/material/'
 
 function RegistrationForm() {
-  const [name, setName] = useState('Guilherme')
+  const [name, setName] = useState('')
+  const [lastName, setLastName] = useState('')
   return (
     <form
       onSubmit={event => {
@@ -25,16 +26,18 @@ function RegistrationForm() {
         autoComplete="off"
       >
         <TextField
-          value={name}
           fullWidth
           margin="normal"
           id="nameTextField"
           label="Name"
           variant="outlined"
+          value={name}
           onChange={event => {
-            if (name.length >= 3) {
-              setName(name.substring(0, 3))
+            let tmpName = event.target.value
+            if (tmpName.length >= 3) {
+              tmpName = tmpName.substring(0, 3)
             }
+            setName(tmpName)
           }}
         />
         <TextField
@@ -43,6 +46,14 @@ function RegistrationForm() {
           id="lastNameTextField"
           label="Last Name"
           variant="outlined"
+          value={lastName}
+          onChange={event => {
+            let tmpLastName = event.target.value
+            if (tmpLastName.length >= 3) {
+              tmpLastName = tmpLastName.substring(0, 3)
+            }
+            setLastName(tmpLastName)
+          }}
         />
         <TextField
           fullWidth
