@@ -10,6 +10,9 @@ import {
 function RegistrationForm() {
   const [name, setName] = useState('')
   const [lastName, setLastName] = useState('')
+  const [cpf, setCpf] = useState('')
+  const [promotions, setPromotions] = useState(true)
+  const [newsletter, setNewsletter] = useState(true)
   return (
     <form
       onSubmit={event => {
@@ -55,12 +58,25 @@ function RegistrationForm() {
           id="cpfTextField"
           label="CPF"
           variant="outlined"
+          value={cpf}
+          onChange={event => {
+            setCpf(event.target.value)
+          }}
         />
       </Box>
 
-      <FormControlLabel control={<Switch defaultChecked />} label="Prmotions" />
       <FormControlLabel
-        control={<Switch defaultChecked />}
+        control={<Switch checked={promotions} defaultChecked={promotions} />}
+        onChange={event => {
+          setPromotions(event.target.checked)
+        }}
+        label="Prmotions"
+      />
+      <FormControlLabel
+        control={<Switch checked={newsletter} defaultChecked={newsletter} />}
+        onChange={event => {
+          setNewsletter(event.target.checked)
+        }}
         label="Newsletter"
       />
       <Button type="submit" variant="contained">
