@@ -34,9 +34,6 @@ function RegistrationForm() {
           value={name}
           onChange={event => {
             let tmpName = event.target.value
-            if (tmpName.length >= 3) {
-              tmpName = tmpName.substring(0, 3)
-            }
             setName(tmpName)
           }}
         />
@@ -49,9 +46,6 @@ function RegistrationForm() {
           value={lastName}
           onChange={event => {
             let tmpLastName = event.target.value
-            if (tmpLastName.length >= 3) {
-              tmpLastName = tmpLastName.substring(0, 3)
-            }
             setLastName(tmpLastName)
           }}
         />
