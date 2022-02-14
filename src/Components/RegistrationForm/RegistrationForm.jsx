@@ -7,16 +7,18 @@ import {
   Box
 } from '@mui/material/'
 
-function RegistrationForm() {
+function RegistrationForm({ submitForm, CPFValidation }) {
   const [name, setName] = useState('')
   const [lastName, setLastName] = useState('')
   const [cpf, setCpf] = useState('')
   const [promotions, setPromotions] = useState(true)
   const [newsletter, setNewsletter] = useState(true)
+  const [errors, setErrors] = useState({ cpf: { valid: true, text: '' } })
   return (
     <form
       onSubmit={event => {
         event.preventDefault()
+        submitForm({ name, cpf })
       }}
     >
       <Box
@@ -62,6 +64,12 @@ function RegistrationForm() {
           onChange={event => {
             setCpf(event.target.value)
           }}
+          onBlur={(event) => {
+            const itsValid = CPFValidation(cpf)
+            setErrors({ cpf: itsValid })
+          }}
+          error={!errors.cpf.valid}
+          helperText={errors.cpf.text}
         />
       </Box>
 
