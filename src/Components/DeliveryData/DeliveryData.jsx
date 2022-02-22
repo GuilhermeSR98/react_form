@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { TextField, Button } from '@mui/material/'
 
-function DeliveryData({submiForm}) {
+function DeliveryData({submitForm}) {
   const [CEP, setCEP] = useState('')
   const [adress, setAdress] = useState('')
   const [number, setNumber] = useState('')
@@ -11,7 +11,7 @@ function DeliveryData({submiForm}) {
     <form
       onSubmit={event => {
         event.preventDefault()
-        submiForm({ CEP, adress, number, state, city })
+        submitForm({ CEP, adress, number, state, city })
       }}
     >
       <TextField

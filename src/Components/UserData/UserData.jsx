@@ -12,20 +12,19 @@ function UserData({ submitForm }) {
       }}
     >
       <TextField
-        value={email}
-        onSubmit={event => {
-          setEmail(event.target.value)
-        }}
-        variant="outlined"
-        fullWidth
-        margin="normal"
-        id="email"
-        label="Email"
-        type="email"
-      />
+          fullWidth
+          margin="normal"
+          id="email"
+          label="Email"
+          variant="outlined"
+          value={email}
+          onChange={event => {
+            setEmail(event.target.value)
+          }}
+        />
       <TextField
         value={password}
-        onSubmit={event => {
+        onChange={event => {
           setPassword(event.target.value)
         }}
         variant="outlined"
