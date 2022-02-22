@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { TextField, Button } from '@mui/material/'
 
-function UserData() {
+function UserData({ submitForm }) {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   return (
-    <form>
+    <form
+      onSubmit={event => {
+        event.preventDefault()
+        submitForm({ email, password })
+      }}
+    >
       <TextField
+        value={email}
+        onSubmit={event => {
+          setEmail(event.target.value)
+        }}
         variant="outlined"
         fullWidth
         margin="normal"
@@ -13,6 +24,10 @@ function UserData() {
         type="email"
       />
       <TextField
+        value={password}
+        onSubmit={event => {
+          setPassword(event.target.value)
+        }}
         variant="outlined"
         fullWidth
         margin="normal"

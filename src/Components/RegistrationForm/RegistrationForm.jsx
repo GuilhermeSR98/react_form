@@ -3,8 +3,9 @@ import PersonalData from '../PersonalData/PersonalData'
 import UserData from '../UserData/UserData'
 import DeliveryData from '../DeliveryData/DeliveryData'
 
-function RegistrationForm(CPFValidation, submitForm) {
+function RegistrationForm({ CPFValidation, submitForm }) {
   const [stage, setStage] = useState(0)
+
   const forms = [
     <UserData submitForm={next} />,
     <PersonalData submitForm={next} CPFValidation={CPFValidation} />,
